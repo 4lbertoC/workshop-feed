@@ -11,9 +11,12 @@
     <div class="page-header container">
       <h3>My Message Feed</h3>
     </div>
+
     <div class="container">
       Writing as <span class="user-id">...</span>
     </div>
+
+    <!-- The new message field -->
     <div class="new-message-container">
       <div class="new-message">
         <div class="new-message-text-container">
@@ -25,15 +28,14 @@
       </div>
     </div>
     <div>
+
+    <!-- The message feed -->
     <div class="message-feed-container">
       <div class="message-feed"></div>
     </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js" charset="utf-8"></script>
-    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js" charset="utf-8"></script>
-
-    <!-- TEMPLATES -->
+    <!-- The message template -->
     <script type="text/template" id="template-message">
       <div class="message panel panel-primary">
         <div class="panel-heading">
@@ -44,8 +46,17 @@
       </div>
     </script>
 
-    <script src="js/MessageFeed.js" charset="utf-8"></script>
-    <script src="js/NewMessageField.js" charset="utf-8"></script>
-    <script src="js/app.js" charset="utf-8"></script>
+    <!-- Third party libraries -->
+    <!-- Mustache is used to generate content from a template -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+    <!-- Firebase is used to communicate with the database -->
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+
+    <!-- Our Javascript classes -->
+    <script src="js/Database.js"></script>
+    <script src="js/MessageFeed.js"></script>
+    <script src="js/NewMessageField.js"></script>
+    <!-- The main app initialisation code -->
+    <script src="js/app.js"></script>
   </body>
 </html>

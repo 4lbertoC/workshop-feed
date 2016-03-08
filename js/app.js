@@ -1,4 +1,11 @@
-var rootRef = new Firebase('https://scorching-torch-7585.firebaseio.com');
+var DATABASE_URL = 'https://scorching-torch-7585.firebaseio.com';
+
+var database = new Database({
+  databaseUrl: DATABASE_URL,
+  onValueChanged: function(messages) {
+    messageFeed.update(messages);
+  }
+});
 
 var messageFeed = new MessageFeed({
   element: document.querySelector('.message-feed')
@@ -6,16 +13,11 @@ var messageFeed = new MessageFeed({
 
 var newMessageField = new NewMessageField({
   element: document.querySelector('.new-message'),
-  onSubmit: function(messageData) {
-    rootRef.child('messages').push(messageData);
+  onSubmit: function(message) {
+    database.pushMessage(message);
   }
 });
 
-document.querySelector('.user-id').innerText = window.sessionStorage.getItem(
-  'userId');
-
-rootRef
-  .child('messages')
-  .limitToFirst(5)
-  .orderByChild('timestamp')
-  .on("value", messageFeed.update);
+document
+  .querySelector('.user-id')
+  .innerText = window.sessionStorage.getItem('userId');
