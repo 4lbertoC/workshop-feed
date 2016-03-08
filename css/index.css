@@ -1,0 +1,16 @@
+.new-message-container,
+.message-feed-container {
+  margin: 15px;
+  text-align: center;
+}
+
+.new-message,
+.message-feed {
+  width: 300px;
+  display: inline-block;
+}
+
+.new-message-text {
+  margin-bottom: 10px;
+  max-width: 100%;
+}
