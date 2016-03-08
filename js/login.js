@@ -9,5 +9,5 @@ document
     }
 
     window.sessionStorage.setItem('userId', userIdField.value);
-    window.location.href = 'index.html';
+    window.location.href = 'feed.html';
   });
