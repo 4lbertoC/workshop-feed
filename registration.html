@@ -3,16 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Login to My Message Feed</title>
+    <title>Register to My Message Feed</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/form.css">
   </head>
   <body>
     <div class="container main-container">
       <div class="page-header">
-        <h3>Login to My Message Feed</h3>
+        <h3>Register to My Message Feed</h3>
       </div>
       <form class="main-form">
+        <div class="form-group">
+          <label for="user-name">Username</label>
+          <input id="user-name" class="form-control" placeholder="Username" required>
+        </div>
         <div class="form-group">
           <label for="user-email">Email</label>
           <input id="user-email" class="form-control" type="email" placeholder="Email" required>
@@ -21,14 +25,13 @@
           <label for="user-password">Password</label>
           <input id="user-password" class="form-control" type="password" placeholder="Password" required>
         </div>
-        <button class="btn btn-default" type="submit">Login</button>
-        <a class="registration-link" href="registration.html">Register...</a>
-      </form>
-    </div>
+        <button class="btn btn-default" type="submit">Register</button>
+      </div>
+    </form>
 
     <!-- Firebase is used to communicate with the database -->
     <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
     <!-- The page code -->
-    <script src="js/login.js"></script>
+    <script src="js/registration.js"></script>
   </body>
 </html>

@@ -1,13 +1,27 @@
+var rootRef = new Firebase('https://scorching-torch-7585.firebaseio.com');
+
 document
-  .querySelector('#login-button')
-  .addEventListener('click', function(evt) {
-    var userIdField = document.querySelector('#user-id-text');
+  .querySelector('.main-form')
+  .addEventListener('submit', function(evt) {
+    evt.preventDefault();
 
-    if (!userIdField.checkValidity()) {
-      alert('Invalid User ID!');
-      return;
-    }
+    var emailField = document.querySelector('#user-email');
+    var passwordField = document.querySelector('#user-password');
 
-    window.sessionStorage.setItem('userId', userIdField.value);
-    window.location.href = 'feed.html';
+    rootRef.authWithPassword({
+      email: emailField.value,
+      password: passwordField.value
+    }, function(error, authData) {
+      if (error) {
+        alert('Error logging in: ' + error);
+      } else {
+        rootRef
+          .child('users/' + authData.uid)
+          .on('value', function(userData) {
+            window.sessionStorage.setItem('userName', userData.val().userName);
+            window.location.href = 'feed.html';
+          });
+      }
+    });
+
   });

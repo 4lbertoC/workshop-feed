@@ -10,6 +10,6 @@ function Database(params) {
     .child('messages')
     .limitToFirst(5)
     .orderByChild('timestamp')
-    .on("value", params.onValueChanged);
+    .on('value', params.onValueChanged);
 
 }

@@ -20,4 +20,4 @@ var newMessageField = new NewMessageField({
 
 document
   .querySelector('.user-id')
-  .innerText = window.sessionStorage.getItem('userId');
+  .innerText = window.sessionStorage.getItem('userName');
